@@ -1,11 +1,11 @@
 # Boas vindas ao repositório do projeto Xadrez
 
 <details>
-🧑‍💻 O que foi desenvolvido<br />
+🧑‍💻 O que foi desenvolvido:<br />
 
-Funções recursivas. Cada função recursiva simula o movimento da respectiva peça, imprimindo a direção correta a cada casa. <br />
-Loops aninhados com múltiplas variáveis e/ou condições. O movimento do Cavalo é para cima e para a direita, em "L" (duas casas para cima e uma para a direita). <br />
-O Bispo foi implementado com recursividade, e também com loops aninhados, utilizando o loop mais externo para o movimento vertical, e o mais interno para o movimento horizontal.
+- Funções recursivas. Cada função recursiva simula o movimento da respectiva peça, imprimindo a direção correta a cada casa. <br />
+- Loops aninhados com múltiplas variáveis e/ou condições. O movimento do Cavalo é para cima e para a direita, em "L" (duas casas para cima e uma para a direita). <br />
+- O Bispo foi implementado com recursividade, e também com loops aninhados, utilizando o loop mais externo para o movimento vertical, e o mais interno para o movimento horizontal.
 
 <br />
 
