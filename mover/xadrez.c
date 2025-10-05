@@ -1,67 +1,92 @@
 #include <stdio.h>
 
-int main() {
-    // === TORRE ===
-    // A torre move-se em linha reta (horizontal ou vertical).
-    // Neste caso, 5 casas para a direita.
-    printf("=== Movimento da TORRE ===\n");
-    int casasTorre = 5;
+// === Função recursiva da TORRE ===
+// Move-se 5 casas para a direita
+void moverTorre(int casaAtual, int totalCasas)
+{
+    if (casaAtual > totalCasas)
+        return; // caso base (fim da recursão)
 
-    for (int i = 1; i <= casasTorre; i++) {
-        printf("Casa %d: Direita\n", i);
+    printf("Casa %d: Direita\n", casaAtual);
+    moverTorre(casaAtual + 1, totalCasas); // chamada recursiva
+}
+
+// === Função recursiva da RAINHA ===
+// Move-se 8 casas para a esquerda
+void moverRainha(int casaAtual, int totalCasas)
+{
+    if (casaAtual > totalCasas)
+        return; // caso base
+
+    printf("Casa %d: Esquerda\n", casaAtual);
+    moverRainha(casaAtual + 1, totalCasas);
+}
+
+// === Função recursiva do BISPO ===
+// Move-se 5 casas na diagonal (Cima + Direita)
+// Inclui loops aninhados dentro da recursão
+void moverBispo(int movimentoVertical, int totalCasas)
+{
+    if (movimentoVertical > totalCasas)
+        return; // fim da recursão
+
+    printf("Movimento %d:\n", movimentoVertical);
+
+    // Loop aninhado interno para o movimento horizontal
+    for (int movimentoHorizontal = 1; movimentoHorizontal <= 1; movimentoHorizontal++)
+    {
+        printf("  Cima, Direita\n");
     }
 
-    // === BISPO ===
-    // O bispo move-se na diagonal.
-    // Simulamos 5 casas na diagonal "Cima, Direita".
-    printf("\n=== Movimento do BISPO ===\n");
-    int casasBispo = 5;
-    int contador = 1;
+    moverBispo(movimentoVertical + 1, totalCasas); // chamada recursiva
+}
 
-    while (contador <= casasBispo) {
-        printf("Casa %d: Cima, Direita\n", contador);
-        contador++;
-    }
+// === Movimento do CAVALO ===
+// Usa loops aninhados e controle de fluxo
+// Duas casas para cima e uma para a direita
+void moverCavalo()
+{
+    int movimentosVerticais = 2;
+    int movimentosHorizontais = 1;
 
-    // === RAINHA ===
-    // A rainha move-se em todas as direções.
-    // Aqui, 8 casas para a esquerda.
-    printf("\n=== Movimento da RAINHA ===\n");
-    int casasRainha = 8;
-    int i = 1;
+    printf("=== Movimento do CAVALO ===\n");
 
-    do {
-        printf("Casa %d: Esquerda\n", i);
-        i++;
-    } while (i <= casasRainha);
+    for (int i = 1, passo = 1; i <= movimentosVerticais; i++, passo++)
+    {
+        printf("Passo %d: Cima\n", passo);
 
-    // === CAVALO ===
-    // O cavalo move-se em "L".
-    // Para este desafio: 2 casas para baixo e 1 casa para a esquerda.
-    // Usaremos loops aninhados: um "for" e um "while".
-
-    printf("\n=== Movimento do CAVALO ===\n");
-
-    int movimentosBaixo = 2;
-    int movimentosEsquerda = 1;
-
-    // Primeiro loop: 2 movimentos para baixo
-    for (int passo = 1; passo <= movimentosBaixo; passo++) {
-        printf("Passo %d: Baixo\n", passo);
-        
-        // Loop interno: simula um pequeno atraso lógico (só para mostrar o aninhamento)
-        int espera = 0;
-        while (espera < 1) { 
-            espera++; // Apenas ilustrativo — serve para cumprir o uso do while
+        // Loop interno: apenas para ilustrar controle de fluxo
+        for (int j = 0; j < 2; j++)
+        {
+            if (j == 1)
+                continue; // ignora o segundo ciclo, só para demonstrar
         }
     }
 
-    // Após os dois movimentos para baixo, o cavalo faz um movimento para a esquerda
-    int cont = 0;
-    while (cont < movimentosEsquerda) {
-        printf("Passo %d: Esquerda\n", movimentosBaixo + cont + 1);
-        cont++;
+    // Após os movimentos verticais, movimento horizontal
+    for (int k = 0; k < movimentosHorizontais; k++)
+    {
+        printf("Passo 3: Direita\n");
+
+        // Exemplo de uso de break dentro do loop
+        if (k == 0)
+            break; // só anda uma casa, depois interrompe
     }
+}
+
+int main()
+{
+    printf("=== Movimento da TORRE ===\n");
+    moverTorre(1, 5); // recursão: 5 casas
+
+    printf("\n=== Movimento do BISPO ===\n");
+    moverBispo(1, 5); // recursão + loop aninhado
+
+    printf("\n=== Movimento da RAINHA ===\n");
+    moverRainha(1, 8); // recursão simples
+
+    printf("\n");
+    moverCavalo(); // loops complexos
 
     printf("\nMovimentos concluídos!\n");
 
