@@ -27,7 +27,7 @@
   
   3. Inicialize a aplicação
 
-  - `./xadrez 
+  - `./xadrez`
   
 </details>
 
